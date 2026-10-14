@@ -50,7 +50,9 @@ let view = loadView();
 // the artist whose puzzles are on show
 let artist = null;
 // one entry per period: { name, note, usual, all, artists, cover }; `all` is every
-// artist of the period, `artists` those with something on show
+// artist of the period, `artists` those with something on show. A category that
+// names its own pictures, as Intro to Art History does, has no artists but a
+// `set`: a page of those pictures, kept like an artist's
 let everyPeriod = [];
 // the periods with something on show
 let periods = [];
@@ -232,7 +234,7 @@ function setSpell(on) {
 // Take the hidden pictures out of every artist's page. An artist whose cover is
 // hidden shows their first picture left, and one with none left has no card.
 function sift() {
-  for (const a of everyone) {
+  for (const a of [...everyone, ...everyPeriod.filter((t) => t.set).map((t) => t.set)]) {
     a.puzzles = a.all.filter(visible);
     const usual = a.all.find((p) => p.image === a.usual);
     a.cover = usual && !visible(usual) ? a.puzzles[0] && a.puzzles[0].image : a.usual;
@@ -244,9 +246,9 @@ function sift() {
   for (const t of everyPeriod) {
     t.artists = t.all.filter((a) => a.puzzles.length);
     const named = t.artists.some((a) => a.puzzles.some((p) => p.image === t.usual));
-    t.cover = named ? t.usual : t.artists[0] && t.artists[0].cover;
+    t.cover = t.set ? t.set.cover : named ? t.usual : t.artists[0] && t.artists[0].cover;
   }
-  periods = everyPeriod.filter((t) => t.artists.length);
+  periods = everyPeriod.filter((t) => (t.set ? t.set.puzzles : t.artists).length);
   // the open pages are drawn again when they are next opened
   artist = null;
   period = null;
@@ -320,6 +322,7 @@ function labelCards() {
   if (period) document.querySelectorAll('#artists .card').forEach(tally(period.artists));
   document.querySelectorAll('#names .card').forEach(tally(byName));
   document.querySelectorAll('#periods .card').forEach((card, i) => {
+    if (periods[i].set) return tally([periods[i].set])(card, 0);
     const count = periods[i].artists.length;
     card.querySelector('small').textContent = count + (count === 1 ? ' artist' : ' artists');
   });
@@ -554,6 +557,9 @@ $('#splash').addEventListener('click', () => {
 /* ---------- Gallery ---------- */
 
 const artistOf = (p) => everyone.find((a) => a.all.includes(p));
+// the page a puzzle goes back to: the open one if the picture is on it, as in a
+// category's own set of pictures, or its artist's
+const homeOf = (p) => (artist && artist.all.includes(p) ? artist : artistOf(p));
 // the category an artist's page goes back to: the open one if they are in it, or their period
 const periodOf = (a) => (period && period.all.includes(a) ? period : everyPeriod.find((t) => t.name === a.period));
 // a title is shown without the word "rape" spelled out, as The R+++ of Proserpine,
@@ -632,6 +638,8 @@ function openGallery() {
 
 // One period's artists, always lit. Coming back to the same period keeps the page where it was.
 function openPeriod(t) {
+  // a category of pictures has no artists to show and opens on the pictures
+  if (t.set) return openArtist(t.set);
   game = null;
   if (t !== period) {
     period = t;
@@ -669,7 +677,7 @@ function openArtist(a) {
     $('#artist').scrollTop = 0;
   }
   // from the list of artists, the way back is to the list
-  $('#artistBackName').textContent = view === 'list' ? 'Artists' : periodOf(a).name;
+  $('#artistBackName').textContent = a.set ? 'Gallery' : view === 'list' ? 'Artists' : periodOf(a).name;
   labelCards();
   show('artist');
 }
@@ -760,7 +768,7 @@ async function visit(p) {
     return;
   }
   game = { p, aspect: img.naturalWidth / img.naturalHeight, held: [], done: true };
-  $('#backName').textContent = artistOf(p).name;
+  $('#backName').textContent = homeOf(p).name;
   showPlate(p, false);
 }
 
@@ -774,7 +782,7 @@ async function start(p, fresh = false) {
     return;
   }
   $('#pause').hidden = true;
-  $('#quitName').textContent =$('#backName').textContent = artistOf(p).name;
+  $('#quitName').textContent =$('#backName').textContent = homeOf(p).name;
   show('play');
 
   const aspect = img.naturalWidth / img.naturalHeight;
@@ -1181,7 +1189,7 @@ function showPlate(p, played = true) {
     ? `Music: ${credit.composer}, ${credit.title}` + (credit.performer ? ` · played by ${credit.performer}` : '')
     : '';
   $('#plateMusic').hidden = !credit;
-  $('#nextBtn').hidden = artistOf(p).puzzles.length < 2;
+  $('#nextBtn').hidden = homeOf(p).puzzles.length < 2;
   // The solved screen fades in over the puzzle, which is only put away after.
   const done = $('#done');
   done.classList.add('arriving');
@@ -1193,9 +1201,9 @@ function showPlate(p, played = true) {
   }, 1000);
 }
 
-// The same artist's next unsolved puzzle, or simply their next one if all are solved.
+// The same page's next unsolved puzzle, or simply its next one if all are solved.
 function nextPuzzle(p) {
-  const list = artistOf(p).puzzles;
+  const list = homeOf(p).puzzles;
   const i = list.indexOf(p);
   const rest = [...list.slice(i + 1), ...list.slice(0, i)];
   return rest.find((q) => !(blind() ? mastered(q) : solved.has(q.id))) || rest[0];
@@ -1225,7 +1233,7 @@ $('#pauseSettings').addEventListener('click', () => {
 });
 $('#resumeBtn').addEventListener('click', () => ($('#pause').hidden = true));
 $('#restartBtn').addEventListener('click', () => start(game.p, true));
-$('#quitBtn').addEventListener('click', () => openArtist(artistOf(game.p)));
+$('#quitBtn').addEventListener('click', () => openArtist(homeOf(game.p)));
 $('#homeBtn').addEventListener('click', openGallery);
 
 $('#peekBtn').addEventListener('click', () => setGuide(guideEl.classList.contains('off')));
@@ -1241,9 +1249,9 @@ guideEl.addEventListener('click', () => {
   if (peekEl.classList.toggle('show')) peekTimer = setTimeout(() => peekEl.classList.remove('show'), 1800);
 });
 
-$('#backBtn').addEventListener('click', () => openArtist(artistOf(game.p)));
+$('#backBtn').addEventListener('click', () => openArtist(homeOf(game.p)));
 $('#doneHome').addEventListener('click', openGallery);
-$('#artistBack').addEventListener('click', () => (view === 'list' ? openGallery() : openPeriod(periodOf(artist))));
+$('#artistBack').addEventListener('click', () => (artist.set || view === 'list' ? openGallery() : openPeriod(periodOf(artist))));
 $('#periodBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
 $('#nextBtn').addEventListener('click', () => visit(nextPuzzle(game.p)));
@@ -1270,7 +1278,7 @@ $('#settingsBack').addEventListener('click', async () => {
   }
   // an artist's page comes back without the pictures hidden in the meantime
   if (settingsFrom === 'artist') {
-    if (!artists.includes(artistBefore)) return openGallery();
+    if (!(artistBefore.set ? artistBefore.puzzles.length : artists.includes(artistBefore))) return openGallery();
     if (periods.includes(periodBefore)) openPeriod(periodBefore);
     return openArtist(artistBefore);
   }
@@ -1353,7 +1361,8 @@ async function boot() {
   } catch {}
   // periods.json does the same for the categories on the home page; an artist
   // with no period goes under Other artists, and `also` puts one in further
-  // categories, such as Female Artists
+  // categories, such as Female Artists. A category with a list of `puzzles`
+  // holds those pictures, in that order, and no artists
   let eras = [];
   try {
     eras = await (await fetch('puzzles/periods.json', { cache: 'no-cache' })).json();
@@ -1365,12 +1374,18 @@ async function boot() {
       return { name, note: about.note, sort: about.sort || name.split(' ').pop(), period: about.period || 'Other artists', also: about.also || [], usual: about.cover ? 'puzzles/' + about.cover : all[0] && all[0].image, all };
     })
     .filter((a) => a.all.length);
-  everyPeriod = [...new Set([...eras.map((t) => t.name), ...everyone.map((a) => a.period)])].map((name) => ({
-    name,
-    note: (eras.find((t) => t.name === name) || {}).note,
-    usual: (eras.find((t) => t.name === name) || {}).cover && 'puzzles/' + eras.find((t) => t.name === name).cover,
-    all: everyone.filter((a) => a.period === name || a.also.includes(name)),
-  }));
+  everyPeriod = [...new Set([...eras.map((t) => t.name), ...everyone.map((a) => a.period)])].map((name) => {
+    const about = eras.find((t) => t.name === name) || {};
+    const usual = about.cover && 'puzzles/' + about.cover;
+    const own = about.puzzles && about.puzzles.map((image) => puzzles.find((p) => p.image === 'puzzles/' + image)).filter(Boolean);
+    return {
+      name,
+      note: about.note,
+      usual,
+      all: own ? [] : everyone.filter((a) => a.period === name || a.also.includes(name)),
+      set: own && { name, note: about.note, set: true, usual: usual || (own[0] && own[0].image), all: own },
+    };
+  });
   sift();
   showSplash();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});

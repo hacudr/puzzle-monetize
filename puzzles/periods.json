@@ -1,5 +1,22 @@
 [
   {
+    "name": "Intro to Art History",
+    "note": "Free to play",
+    "cover": "monet-woman-with-a-parasol.webp",
+    "puzzles": [
+      "rembrandt-van-rijn-self-portrait.webp",
+      "gentileschi-self-portrait-as-the-allegory-of-painting.webp",
+      "rossetti-proserpine.webp",
+      "monet-woman-with-a-parasol.webp",
+      "degas-four-dancers.webp",
+      "renoir-picking-flowers.webp",
+      "pissarro-boulevard-des-italiens-morning-sunlight.webp",
+      "cezanne-still-life-with-apples-and-peaches.webp",
+      "gogh-green-wheat-fields-auvers.webp",
+      "marvellous-tree.webp"
+    ]
+  },
+  {
     "name": "Female Artists",
     "note": "17th to 20th centuries",
     "cover": "morisot-young-girl-with-an-apron.webp"
