@@ -145,6 +145,11 @@
       </div>
       <p class="hint">The frame a finished puzzle hangs in.</p>
     </section>
+    <section>
+      <p class="eyebrow">Purchases</p>
+      <button id="restore" class="link">Restore Purchases</button>
+      <p id="restoreNote" class="hint" role="status"></p>
+    </section>
   </div>
 </main>
 
@@ -244,7 +249,19 @@
   <p class="splash-caption"><span id="splashCaption"></span><small>Music: Debussy, Clair de lune · played by Laurens Goedhart, CC BY 3.0</small></p>
 </div>
 
+<!-- Upgrade: what a locked picture can be bought with -->
+<div id="upgrade" class="overlay" hidden>
+  <div class="menu offer" role="dialog" aria-labelledby="offerName">
+    <p class="eyebrow">Upgrade to play</p>
+    <h2 id="offerName"></h2>
+    <div id="offers" class="offers"></div>
+    <p id="offerNote" class="hint" role="status"></p>
+    <button id="offerClose" class="link">Not Now</button>
+  </div>
+</div>
+
 <script src="sound.js"></script>
+<script src="store.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

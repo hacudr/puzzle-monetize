@@ -362,6 +362,33 @@ button {
 .shape.wide::before { width: 20px; height: 14px; }
 .shape.square::before { width: 17px; height: 17px; }
 
+/* A picture still to be bought: a padlock and the word, in the other top
+   corner. The cards for artists and categories carry the padlock alone. */
+.lock {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 13px 0 10px;
+  border-radius: 17px;
+  background: rgba(20, 16, 12, .62);
+  box-shadow: 0 0 0 1px rgba(243, 235, 221, .18);
+  color: var(--cream);
+  font-size: .9rem;
+  font-weight: 500;
+  pointer-events: none;
+}
+.lock svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lock em { font-style: normal; }
+#periods .lock, #artists .lock, #names .lock { width: 34px; padding: 0; justify-content: center; }
+#periods .lock em, #artists .lock em, #names .lock em { display: none; }
+#names .card { position: relative; }
+#names .lock { left: auto; right: 10px; }
+#names .card-label { padding-right: 54px; }
+
 .card-label { display: block; padding: 12px 16px 16px; }
 .card-label i { display: block; font-size: .95rem; color: rgba(243, 235, 221, .8); }
 .card-label b { display: block; font-weight: 500; font-size: 1.45rem; line-height: 1.15; }
@@ -604,6 +631,30 @@ button {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+/* Upgrade: over whichever page the locked picture was tapped on */
+#upgrade { position: fixed; z-index: 40; padding: 24px; }
+.offer { gap: 14px; width: 100%; max-width: 440px; text-align: center; }
+.offer h2 { margin: 0 0 6px; font-weight: 500; font-size: 1.9rem; line-height: 1.15; }
+.offer .hint { margin: 0; min-height: 1.3em; font-style: italic; color: var(--ink-soft); }
+.offer .link { align-self: center; margin-top: 6px; font-size: 1.2rem; padding: 4px 2px 1px; border-bottom: 1.5px solid var(--ink); }
+.offers { display: flex; flex-direction: column; width: 100%; text-align: left; }
+.offers button {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 20px;
+  padding: 14px 4px;
+  text-align: left;
+  border-bottom: 1px solid rgba(var(--ink-rgb), .14);
+}
+.offers button:last-child { border-bottom: 0; }
+.offers button:active { opacity: .55; }
+.offers button:disabled { opacity: .4; cursor: default; }
+.offers b { font-size: 1.3rem; font-weight: 500; }
+.offers small { grid-area: 2 / 1; font-size: .85rem; font-style: italic; color: var(--ink-soft); }
+.offers span { grid-area: 1 / 2 / span 2; padding: 7px 14px; border: 1.5px solid var(--ink); border-radius: 999px; font-size: 1.1rem; font-weight: 500; }
+#restore { margin-top: 14px; font-size: 1.3rem; }
 
 /* ---------- Solved ---------- */
 

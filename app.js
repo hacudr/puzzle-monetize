@@ -82,6 +82,8 @@ let hold = null;
 let peekTimer = 0;
 // whether the tray for pieces set aside is switched on
 let trayOn = loadTray();
+// the pictures free to all: those of a category marked `free`, as Intro to Art History is
+let free = new Set();
 
 function loadSolved() {
   try {
@@ -310,6 +312,7 @@ function labelCards() {
     const p = artist.puzzles[i];
     card.classList.toggle('solved', solved.has(p.id));
     card.classList.toggle('veiled', blind() && !mastered(p));
+    card.querySelector('.lock').hidden = !locked(p);
     drawVeil(card);
     card.querySelector('small').textContent =
       progressKey(p) in progress ? 'In progress' : mastered(p) ? 'Solved in black and white' : solved.has(p.id) ? 'Solved' : '';
@@ -317,6 +320,7 @@ function labelCards() {
   const tally = (list) => (card, i) => {
     const count = list[i].puzzles.length;
     const done = list[i].puzzles.filter((p) => solved.has(p.id)).length;
+    card.querySelector('.lock').hidden = !anyLocked(list[i]);
     card.querySelector('small').textContent = count + (count === 1 ? ' puzzle' : ' puzzles') + (done ? ` · ${done} solved` : '');
   };
   if (period) document.querySelectorAll('#artists .card').forEach(tally(period.artists));
@@ -324,6 +328,7 @@ function labelCards() {
   document.querySelectorAll('#periods .card').forEach((card, i) => {
     if (periods[i].set) return tally([periods[i].set])(card, 0);
     const count = periods[i].artists.length;
+    card.querySelector('.lock').hidden = !periods[i].artists.some(anyLocked);
     card.querySelector('small').textContent = count + (count === 1 ? ' artist' : ' artists');
   });
 }
@@ -566,10 +571,49 @@ const periodOf = (a) => (period && period.all.includes(a) ? period : everyPeriod
 // unless the settings ask for it in full
 const titleOf = (p) => (spelled() ? p.name : p.name.replace(/\b(r)ape\b/gi, '$1+++'));
 
+/* ---------- Locks ---------- */
+
+// Every picture is locked but the free ones, until the app is bought: one
+// purchase opens them all.
+const locked = (p) => !free.has(p) && !store.owned();
+// a card for an artist or a category carries a padlock while anything on show behind it is locked
+const anyLocked = (a) => a.puzzles.some(locked);
+const LOCK = '<span class="lock" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg><em>Upgrade</em></span>';
+
+// The sheet a locked picture brings up, with the one purchase that opens every
+// picture, and then this one. Kids mode shows no price; buying is for a grown-up.
+function offer(p) {
+  $('#offerName').textContent = titleOf(p);
+  $('#offerNote').textContent = kids ? 'A grown-up can upgrade once Kids mode is off, in Settings.' : '';
+  const list = $('#offers');
+  list.textContent = '';
+  if (!kids) {
+    const b = document.createElement('button');
+    b.innerHTML = '<b>Every puzzle</b><small></small><span></span>';
+    b.querySelector('small').textContent = puzzles.length + ' puzzles by ' + everyone.length + ' artists';
+    b.querySelector('span').textContent = store.price();
+    b.addEventListener('click', async () => {
+      b.disabled = true;
+      try {
+        await store.buy();
+      } catch (err) {
+        $('#offerNote').textContent = err.message;
+        b.disabled = false;
+        return;
+      }
+      $('#upgrade').hidden = true;
+      labelCards();
+      visit(p);
+    });
+    list.append(b);
+  }
+  $('#upgrade').hidden = false;
+}
+
 function makeCard(image, line, name) {
   const card = document.createElement('button');
   card.className = 'card';
-  card.innerHTML = '<span class="card-img"><img alt="" loading="lazy" decoding="async"></span><span class="card-label"><i></i><b></b><small></small></span>';
+  card.innerHTML = '<span class="card-img"><img alt="" loading="lazy" decoding="async">' + LOCK + '</span><span class="card-label"><i></i><b></b><small></small></span>';
   // a small copy keeps the gallery light; fall back to the full picture
   const face = card.querySelector('img');
   face.onerror = () => {
@@ -620,7 +664,7 @@ function renderGallery() {
   for (const a of byName) {
     const card = document.createElement('button');
     card.className = 'card';
-    card.innerHTML = '<span class="card-label"><i></i><b></b><small></small></span>';
+    card.innerHTML = LOCK + '<span class="card-label"><i></i><b></b><small></small></span>';
     card.querySelector('i').textContent = a.note || '';
     card.querySelector('b').textContent = a.name;
     card.addEventListener('click', () => openArtist(a));
@@ -759,6 +803,7 @@ const finished = (p) => (blind() ? mastered(p) : solved.has(p.id)) && !(progress
 // Opens a picture from its card: the finished one if it has been solved, the
 // puzzle if not.
 async function visit(p) {
+  if (locked(p)) return offer(p);
   if (!finished(p)) return start(p);
   let img;
   try {
@@ -774,6 +819,7 @@ async function visit(p) {
 
 // Opens a puzzle where it was left off; `fresh` deals it again from scratch.
 async function start(p, fresh = false) {
+  if (locked(p)) return offer(p);
   let img;
   try {
     img = await loadImage(p.image);
@@ -1189,7 +1235,7 @@ function showPlate(p, played = true) {
     ? `Music: ${credit.composer}, ${credit.title}` + (credit.performer ? ` · played by ${credit.performer}` : '')
     : '';
   $('#plateMusic').hidden = !credit;
-  $('#nextBtn').hidden = homeOf(p).puzzles.length < 2;
+  $('#nextBtn').hidden = homeOf(p).puzzles.filter((q) => !locked(q)).length < 2;
   // The solved screen fades in over the puzzle, which is only put away after.
   const done = $('#done');
   done.classList.add('arriving');
@@ -1201,19 +1247,21 @@ function showPlate(p, played = true) {
   }, 1000);
 }
 
-// The same page's next unsolved puzzle, or simply its next one if all are solved.
+// The same page's next unsolved puzzle, or simply its next one if all are solved,
+// passing over the locked ones.
 function nextPuzzle(p) {
-  const list = homeOf(p).puzzles;
+  const list = homeOf(p).puzzles.filter((q) => !locked(q));
   const i = list.indexOf(p);
   const rest = [...list.slice(i + 1), ...list.slice(0, i)];
   return rest.find((q) => !(blind() ? mastered(q) : solved.has(q.id))) || rest[0];
 }
 
 // Surprise Me: one of the pictures not yet solved, drawn by chance from all the
-// settings leave on show, or any one of them once every picture is solved. It
-// opens on the pieces, so a solved one is dealt afresh.
+// settings leave on show and no lock keeps shut (before the app is bought, the
+// free ones of Intro to Art History alone), or any one of them once every such
+// picture is solved. It opens on the pieces, so a solved one is dealt afresh.
 function surprise() {
-  const pool = artists.flatMap((a) => a.puzzles);
+  const pool = artists.flatMap((a) => a.puzzles).filter((p) => !locked(p));
   const fresh = pool.filter((p) => !(blind() ? mastered(p) : solved.has(p.id)));
   const from = fresh.length ? fresh : pool;
   if (!from.length) return;
@@ -1292,6 +1340,17 @@ document.querySelectorAll('#content [data-content]').forEach((b) =>
   b.addEventListener('click', () => setHidden(b.dataset.content, !hide.has(b.dataset.content)))
 );
 $('#spell').addEventListener('click', () => setSpell(!spell));
+$('#offerClose').addEventListener('click', () => ($('#upgrade').hidden = true));
+// Purchases made before, on this device or another, come back from the shop
+$('#restore').addEventListener('click', async () => {
+  const note = $('#restoreNote');
+  note.textContent = 'Looking…';
+  try {
+    note.textContent = (await store.restore()) ? 'Every puzzle is unlocked.' : 'No purchase to restore.';
+  } catch (err) {
+    note.textContent = err.message;
+  }
+});
 
 // Kids mode goes on at a tap. Coming out of it is for a grown-up: Off has to be
 // held down while its line fills.
@@ -1381,11 +1440,13 @@ async function boot() {
     return {
       name,
       note: about.note,
+      free: !!about.free,
       usual,
       all: own ? [] : everyone.filter((a) => a.period === name || a.also.includes(name)),
       set: own && { name, note: about.note, set: true, usual: usual || (own[0] && own[0].image), all: own },
     };
   });
+  free = new Set(everyPeriod.filter((t) => t.free && t.set).flatMap((t) => t.set.all));
   sift();
   showSplash();
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});

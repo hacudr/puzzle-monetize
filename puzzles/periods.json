@@ -2,6 +2,7 @@
   {
     "name": "Intro to Art History",
     "note": "Free to play",
+    "free": true,
     "cover": "monet-woman-with-a-parasol.webp",
     "puzzles": [
       "rembrandt-van-rijn-self-portrait.webp",
