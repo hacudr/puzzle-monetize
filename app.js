@@ -580,10 +580,17 @@ const locked = (p) => !free.has(p) && !store.owned();
 const anyLocked = (a) => a.puzzles.some(locked);
 const LOCK = '<span class="lock" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg><em>Upgrade</em></span>';
 
-// The sheet a locked picture brings up, with the one purchase that opens every
-// picture, and then this one. Kids mode shows no price; buying is for a grown-up.
-function offer(p) {
-  $('#offerName').textContent = titleOf(p);
+// solved at this difficulty, as the cards count it
+const isSolved = (p) => (blind() ? mastered(p) : solved.has(p.id));
+// the free pictures on show and not yet solved
+const freeLeft = () => [...free].filter((p) => visible(p) && !isSolved(p));
+
+// The sheet with the one purchase that opens every picture, brought up by a
+// locked picture (then opened) or by the free ones all being solved (then
+// `onward`). Kids mode shows no price; buying is for a grown-up.
+function offer(heading, then, eyebrow = 'Upgrade to play') {
+  $('#offerEyebrow').textContent = eyebrow;
+  $('#offerName').textContent = heading;
   $('#offerNote').textContent = kids ? 'A grown-up can upgrade once Kids mode is off, in Settings.' : '';
   const list = $('#offers');
   list.textContent = '';
@@ -603,11 +610,26 @@ function offer(p) {
       }
       $('#upgrade').hidden = true;
       labelCards();
-      visit(p);
+      then();
     });
     list.append(b);
   }
   $('#upgrade').hidden = false;
+}
+
+const paywall = () => offer('Unlock all puzzles', onward, 'You have solved every free puzzle');
+
+// Straight on from the free puzzles, once they are paid past: the first category
+// after the free one, its first artist and their first puzzle not yet solved.
+// The way back from it leads to that artist's page and then the category's.
+function onward() {
+  const t = periods.slice(periods.findIndex((c) => c.free) + 1).find((c) => !c.set);
+  if (!t) return openGallery();
+  const a = t.artists[0];
+  const p = a.puzzles.find((q) => !isSolved(q)) || a.puzzles[0];
+  openPeriod(t);
+  openArtist(a);
+  start(p, finished(p));
 }
 
 function makeCard(image, line, name) {
@@ -803,7 +825,7 @@ const finished = (p) => (blind() ? mastered(p) : solved.has(p.id)) && !(progress
 // Opens a picture from its card: the finished one if it has been solved, the
 // puzzle if not.
 async function visit(p) {
-  if (locked(p)) return offer(p);
+  if (locked(p)) return offer(titleOf(p), () => visit(p));
   if (!finished(p)) return start(p);
   let img;
   try {
@@ -819,7 +841,7 @@ async function visit(p) {
 
 // Opens a puzzle where it was left off; `fresh` deals it again from scratch.
 async function start(p, fresh = false) {
-  if (locked(p)) return offer(p);
+  if (locked(p)) return offer(titleOf(p), () => visit(p));
   let img;
   try {
     img = await loadImage(p.image);
@@ -1197,6 +1219,8 @@ reserveEl.addEventListener('pointercancel', endHold);
 function win() {
   game.done = true;
   const p = game.p;
+  // this one is the last of the free puzzles still to solve
+  const lastFree = !store.owned() && freeLeft().length === 1 && freeLeft()[0] === p;
   solved.add(p.id);
   // the colour comes back over the finished picture
   if (game.blind) {
@@ -1213,7 +1237,11 @@ function win() {
   const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
   // never held up for long by a picture that is slow to decode
   Promise.all([Promise.race([ready, wait(3000)]), wait(1800)]).then(() => {
-    if (game && game.p === p) showPlate(p);
+    if (game && game.p === p) {
+      showPlate(p);
+      // the finished picture is shown a moment before the offer comes over it
+      if (lastFree) setTimeout(() => game && game.p === p && !$('#done').hidden && paywall(), 2600);
+    }
     else $('#play').classList.remove('won');
   });
 }
@@ -1253,7 +1281,7 @@ function nextPuzzle(p) {
   const list = homeOf(p).puzzles.filter((q) => !locked(q));
   const i = list.indexOf(p);
   const rest = [...list.slice(i + 1), ...list.slice(0, i)];
-  return rest.find((q) => !(blind() ? mastered(q) : solved.has(q.id))) || rest[0];
+  return rest.find((q) => !isSolved(q)) || rest[0];
 }
 
 // Surprise Me: one of the pictures not yet solved, drawn by chance from all the
@@ -1262,7 +1290,7 @@ function nextPuzzle(p) {
 // picture is solved. It opens on the pieces, so a solved one is dealt afresh.
 function surprise() {
   const pool = artists.flatMap((a) => a.puzzles).filter((p) => !locked(p));
-  const fresh = pool.filter((p) => !(blind() ? mastered(p) : solved.has(p.id)));
+  const fresh = pool.filter((p) => !isSolved(p));
   const from = fresh.length ? fresh : pool;
   if (!from.length) return;
   const p = from[Math.floor(Math.random() * from.length)];
@@ -1302,7 +1330,8 @@ $('#doneHome').addEventListener('click', openGallery);
 $('#artistBack').addEventListener('click', () => (artist.set || view === 'list' ? openGallery() : openPeriod(periodOf(artist))));
 $('#periodBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
-$('#nextBtn').addEventListener('click', () => visit(nextPuzzle(game.p)));
+// past the last free puzzle solved, Next Puzzle is the way to the purchase
+$('#nextBtn').addEventListener('click', () => (!store.owned() && free.has(game.p) && !freeLeft().length ? paywall() : visit(nextPuzzle(game.p))));
 
 document.querySelectorAll('.gear').forEach((b) =>
   b.addEventListener('click', () => {
