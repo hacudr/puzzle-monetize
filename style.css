@@ -450,6 +450,11 @@ button {
   height: 84px;
   padding: 0 22px;
 }
+/* the solved screen's three ways out: Surprise Me in the very middle, however
+   long the name of the way back */
+#done .bar { display: grid; grid-template-columns: 1fr auto 1fr; }
+#done .bar > :first-child { justify-self: start; min-width: 0; }
+#done .bar > :last-child { justify-self: end; }
 
 .icon-btn {
   width: 48px;
@@ -781,7 +786,7 @@ button {
 .music { flex: none; margin: -8px 0 0; font-size: .85rem; font-style: italic; text-align: center; color: var(--ink-soft); }
 
 .done-links { flex: none; display: flex; align-items: center; gap: 30px; }
-.done-links .link { font-size: 1.05rem; padding: 10px 4px 2px; border-bottom-width: 1px; }
+.done-links .link, #doneSurprise { font-size: 1.05rem; padding: 10px 4px 2px; border-bottom-width: 1px; }
 
 @media (max-height: 760px) {
   .done-body { gap: 16px; padding-bottom: 16px; }
