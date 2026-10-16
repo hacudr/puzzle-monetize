@@ -5867,5 +5867,350 @@
     "artist": "Frederic Leighton",
     "name": "The Return of Persephone (oil sketch)",
     "scientific": "c. 1890–1891"
+  },
+  {
+    "image": "egypt-ceiling-painting-from-the-palace-of-amenhotep-iii.webp",
+    "artist": "Ancient Egypt",
+    "name": "Ceiling Painting from the Palace of Amenhotep III",
+    "scientific": "Malqata, c. 1386–1347 BCE"
+  },
+  {
+    "image": "egypt-portrait-of-the-boy-eutyches.webp",
+    "artist": "Ancient Egypt",
+    "name": "Portrait of the Boy Eutyches",
+    "scientific": "Mummy portrait, 100–150 CE"
+  },
+  {
+    "image": "egypt-portrait-of-a-young-woman-in-red.webp",
+    "artist": "Ancient Egypt",
+    "name": "Portrait of a Young Woman in Red",
+    "scientific": "Mummy portrait, 90–120 CE"
+  },
+  {
+    "image": "egypt-portrait-of-a-young-woman-with-a-gilded-wreath.webp",
+    "artist": "Ancient Egypt",
+    "name": "Portrait of a Young Woman with a Gilded Wreath",
+    "scientific": "Mummy portrait, 120–140 CE"
+  },
+  {
+    "image": "egypt-mummy-mask-of-a-woman.webp",
+    "artist": "Ancient Egypt",
+    "name": "Mummy Mask of a Woman",
+    "scientific": "60–70 CE"
+  },
+  {
+    "image": "egypt-hippopotamus-william.webp",
+    "artist": "Ancient Egypt",
+    "name": "Hippopotamus (“William”)",
+    "scientific": "Faience, c. 1961–1878 BCE"
+  },
+  {
+    "image": "egypt-coffin-of-henettawy.webp",
+    "artist": "Ancient Egypt",
+    "name": "Coffin of the Chantress Henettawy",
+    "scientific": "c. 1000–945 BCE"
+  },
+  {
+    "image": "egypt-stela-of-mentuwoser.webp",
+    "artist": "Ancient Egypt",
+    "name": "Stela of the Steward Mentuwoser",
+    "scientific": "c. 1944 BCE"
+  },
+  {
+    "image": "egypt-mentuhotep-ii-and-hathor.webp",
+    "artist": "Ancient Egypt",
+    "name": "Mentuhotep II and the Goddess Hathor",
+    "scientific": "c. 2010–2000 BCE"
+  },
+  {
+    "image": "egypt-temple-of-dendur.webp",
+    "artist": "Ancient Egypt",
+    "name": "The Temple of Dendur",
+    "scientific": "Completed by 10 CE"
+  },
+  {
+    "image": "egypt-nefertari-playing-senet.webp",
+    "artist": "Ancient Egypt",
+    "name": "Queen Nefertari Playing Senet",
+    "scientific": "Copy of a painting in her tomb, c. 1290–1224 BCE"
+  },
+  {
+    "image": "egypt-nefertari-led-by-isis.webp",
+    "artist": "Ancient Egypt",
+    "name": "Queen Nefertari Led by Isis",
+    "scientific": "Copy of a painting in her tomb, c. 1290–1224 BCE"
+  },
+  {
+    "image": "egypt-nefertari-kneeling-in-adoration.webp",
+    "artist": "Ancient Egypt",
+    "name": "Queen Nefertari Kneeling in Adoration",
+    "scientific": "Copy of a painting in her tomb, c. 1290–1224 BCE"
+  },
+  {
+    "image": "egypt-cat-killing-a-serpent.webp",
+    "artist": "Ancient Egypt",
+    "name": "Cat Killing a Serpent",
+    "scientific": "Copy of a tomb painting, c. 1300–1224 BCE",
+    "content": [
+      "violence"
+    ]
+  },
+  {
+    "image": "egypt-carpenter-making-a-chair.webp",
+    "artist": "Ancient Egypt",
+    "name": "Carpenter Making a Chair",
+    "scientific": "Copy of a painting in the Tomb of Rekhmire, c. 1479–1425 BCE"
+  },
+  {
+    "image": "egypt-funeral-ritual-in-a-garden.webp",
+    "artist": "Ancient Egypt",
+    "name": "Funeral Ritual in a Garden",
+    "scientific": "Copy of a painting in the Tomb of Nakhtmin, c. 1479–1425 BCE"
+  },
+  {
+    "image": "egypt-nakhts-offering-chapel.webp",
+    "artist": "Ancient Egypt",
+    "name": "Nakht’s Offering Chapel",
+    "scientific": "Copy of a tomb painting, c. 1410–1370 BCE",
+    "content": [
+      "nudity",
+      "violence"
+    ]
+  },
+  {
+    "image": "egypt-book-of-the-dead-of-nauny.webp",
+    "artist": "Ancient Egypt",
+    "name": "The Book of the Dead of Nauny",
+    "scientific": "Papyrus, c. 1050 BCE"
+  },
+  {
+    "image": "egypt-artists-painting-of-a-hippopotamus.webp",
+    "artist": "Ancient Egypt",
+    "name": "An Artist’s Painting of a Hippopotamus",
+    "scientific": "Painted flake of limestone, c. 1473–1458 BCE"
+  },
+  {
+    "image": "egypt-wall-painting-from-the-tomb-of-sebekhotep.webp",
+    "artist": "Ancient Egypt",
+    "name": "Wall Painting from the Tomb of Sebekhotep",
+    "scientific": "c. 1396–1386 BCE"
+  },
+  {
+    "image": "egypt-painted-shroud-fragment.webp",
+    "artist": "Ancient Egypt",
+    "name": "Painted Shroud",
+    "scientific": "1st century BCE – 1st century CE"
+  },
+  {
+    "image": "egypt-cat.webp",
+    "artist": "Ancient Egypt",
+    "name": "Cat",
+    "scientific": "Bronze, 664–30 BCE"
+  },
+  {
+    "image": "egypt-model-sailing-boat.webp",
+    "artist": "Ancient Egypt",
+    "name": "Model Sailing Boat",
+    "scientific": "c. 1981–1802 BCE"
+  },
+  {
+    "image": "egypt-travelling-boat-being-rowed.webp",
+    "artist": "Ancient Egypt",
+    "name": "Travelling Boat Being Rowed",
+    "scientific": "Model from the Tomb of Meketre, c. 1981–1975 BCE"
+  },
+  {
+    "image": "egypt-estate-figure.webp",
+    "artist": "Ancient Egypt",
+    "name": "Offering Bearer",
+    "scientific": "Model from the Tomb of Meketre, c. 1981–1975 BCE"
+  },
+  {
+    "image": "near-east-panel-with-striding-lion.webp",
+    "artist": "Ancient Near East",
+    "name": "Panel with Striding Lion",
+    "scientific": "Babylon, c. 604–562 BCE"
+  },
+  {
+    "image": "near-east-lamassu.webp",
+    "artist": "Ancient Near East",
+    "name": "Human-Headed Winged Lion (Lamassu)",
+    "scientific": "Assyrian, c. 883–859 BCE"
+  },
+  {
+    "image": "near-east-ashurnasirpal-relief.webp",
+    "artist": "Ancient Near East",
+    "name": "Ashurnasirpal II with an Attendant",
+    "scientific": "Assyrian relief, c. 883–859 BCE"
+  },
+  {
+    "image": "near-east-bahram-gur-and-azadeh.webp",
+    "artist": "Ancient Near East",
+    "name": "Bahram Gur and Azadeh",
+    "scientific": "Sasanian silver plate, 5th century CE",
+    "content": [
+      "violence"
+    ]
+  },
+  {
+    "image": "near-east-jar-with-mountain-goats.webp",
+    "artist": "Ancient Near East",
+    "name": "Storage Jar with Mountain Goats",
+    "scientific": "Iran, c. 4000–3600 BCE"
+  },
+  {
+    "image": "near-east-textile-with-a-walking-ram.webp",
+    "artist": "Ancient Near East",
+    "name": "Textile with a Walking Ram",
+    "scientific": "Sasanian, 7th century CE"
+  },
+  {
+    "image": "near-east-man-with-an-oryx.webp",
+    "artist": "Ancient Near East",
+    "name": "Man with an Oryx, a Monkey and a Leopard Skin",
+    "scientific": "Assyrian ivory, 8th century BCE"
+  },
+  {
+    "image": "near-east-gold-lion-rhyton.webp",
+    "artist": "Ancient Near East",
+    "name": "Gold Lion Rhyton",
+    "scientific": "Achaemenid, 5th century BCE"
+  },
+  {
+    "image": "greece-panathenaic-prize-amphora.webp",
+    "artist": "Ancient Greece",
+    "name": "Panathenaic Prize Amphora",
+    "scientific": "Athens, c. 530 BCE",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "greece-geometric-krater.webp",
+    "artist": "Ancient Greece",
+    "name": "Geometric Krater",
+    "scientific": "Athens, c. 750–735 BCE",
+    "effect": "gallop",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "greece-stirrup-jar-with-octopus.webp",
+    "artist": "Ancient Greece",
+    "name": "Stirrup Jar with Octopus",
+    "scientific": "Mycenaean, c. 1200–1100 BCE"
+  },
+  {
+    "image": "greece-seated-harp-player.webp",
+    "artist": "Ancient Greece",
+    "name": "Seated Harp Player",
+    "scientific": "Cycladic, 2800–2700 BCE",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "greece-grave-stele-of-a-little-girl.webp",
+    "artist": "Ancient Greece",
+    "name": "Grave Stele of a Little Girl",
+    "scientific": "c. 450–440 BCE"
+  },
+  {
+    "image": "greece-funerary-plaque.webp",
+    "artist": "Ancient Greece",
+    "name": "Funerary Plaque",
+    "scientific": "Athens, c. 520–510 BCE",
+    "effect": "gallop",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "greece-volute-krater.webp",
+    "artist": "Ancient Greece",
+    "name": "Volute-Krater with Battling Amazons",
+    "scientific": "Athens, c. 450 BCE",
+    "effect": "gallop",
+    "content": [
+      "nudity",
+      "violence"
+    ]
+  },
+  {
+    "image": "greece-calyx-krater.webp",
+    "artist": "Ancient Greece",
+    "name": "Calyx-Krater with Dancers",
+    "scientific": "Lucania, c. 400–390 BCE",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "greece-kouros.webp",
+    "artist": "Ancient Greece",
+    "name": "Kouros",
+    "scientific": "Athens, c. 590–580 BCE",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "rome-boscoreale-bedroom.webp",
+    "artist": "Ancient Rome",
+    "name": "Bedroom from a Villa at Boscoreale",
+    "scientific": "c. 50–40 BCE"
+  },
+  {
+    "image": "rome-boscoreale-woman-with-a-kithara.webp",
+    "artist": "Ancient Rome",
+    "name": "Woman Playing a Kithara",
+    "scientific": "Boscoreale, c. 50–40 BCE"
+  },
+  {
+    "image": "rome-boscoreale-garland-wall.webp",
+    "artist": "Ancient Rome",
+    "name": "Garland Wall",
+    "scientific": "Boscoreale, c. 50–40 BCE"
+  },
+  {
+    "image": "rome-perseus-and-andromeda.webp",
+    "artist": "Ancient Rome",
+    "name": "Perseus and Andromeda",
+    "scientific": "Boscotrecase, c. 10 BCE",
+    "content": [
+      "nudity",
+      "frightening"
+    ]
+  },
+  {
+    "image": "rome-sarcophagus-triumph-of-dionysos.webp",
+    "artist": "Ancient Rome",
+    "name": "Sarcophagus with the Triumph of Dionysos",
+    "scientific": "c. 260–270 CE",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "rome-three-graces.webp",
+    "artist": "Ancient Rome",
+    "name": "The Three Graces",
+    "scientific": "2nd century CE",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "rome-caracalla.webp",
+    "artist": "Ancient Rome",
+    "name": "The Emperor Caracalla",
+    "scientific": "212–217 CE"
+  },
+  {
+    "image": "rome-glass-amphoriskos.webp",
+    "artist": "Ancient Rome",
+    "name": "Glass Amphoriskos",
+    "scientific": "1st century CE"
   }
 ]

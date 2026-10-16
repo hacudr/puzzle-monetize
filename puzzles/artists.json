@@ -299,5 +299,30 @@
     "note": "British, 1830–1896",
     "period": "Victorian Classicism",
     "cover": "leighton-the-music-lesson.webp"
+  },
+  {
+    "name": "Ancient Egypt",
+    "note": "c. 3100 BCE – 300 CE",
+    "period": "Ancient Art",
+    "cover": "egypt-nefertari-playing-senet.webp"
+  },
+  {
+    "name": "Ancient Near East",
+    "sort": "Near",
+    "note": "Mesopotamia and Iran, 4000 BCE – 700 CE",
+    "period": "Ancient Art",
+    "cover": "near-east-panel-with-striding-lion.webp"
+  },
+  {
+    "name": "Ancient Greece",
+    "note": "c. 2800–100 BCE",
+    "period": "Ancient Art",
+    "cover": "greece-volute-krater.webp"
+  },
+  {
+    "name": "Ancient Rome",
+    "note": "c. 100 BCE – 400 CE",
+    "period": "Ancient Art",
+    "cover": "rome-boscoreale-woman-with-a-kithara.webp"
   }
 ]
