@@ -324,5 +324,18 @@
     "note": "c. 100 BCE – 400 CE",
     "period": "Ancient Art",
     "cover": "rome-boscoreale-woman-with-a-kithara.webp"
+  },
+  {
+    "name": "Anglo-Saxon England",
+    "sort": "Anglo-Saxon",
+    "note": "c. 450–1066",
+    "period": "Anglo-Saxon and Saxon Art",
+    "cover": "anglo-saxon-disk-brooch.webp"
+  },
+  {
+    "name": "Saxony",
+    "note": "Ottonian and Romanesque, c. 960–1270",
+    "period": "Anglo-Saxon and Saxon Art",
+    "cover": "saxon-prophet-king.webp"
   }
 ]

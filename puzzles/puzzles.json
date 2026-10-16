@@ -6212,5 +6212,211 @@
     "artist": "Ancient Rome",
     "name": "Glass Amphoriskos",
     "scientific": "1st century CE"
+  },
+  {
+    "image": "anglo-saxon-disk-brooch.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Disk Brooch from Faversham",
+    "scientific": "Gold, garnets and glass, early 600s"
+  },
+  {
+    "image": "anglo-saxon-pendant-with-a-cross.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Pendant with a Cross of Garnets",
+    "scientific": "Gold, early 600s"
+  },
+  {
+    "image": "anglo-saxon-pendant-with-a-garnet.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Pendant with a Garnet",
+    "scientific": "Gold, early 600s"
+  },
+  {
+    "image": "anglo-saxon-bird-brooch.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Bird-Shaped Brooch",
+    "scientific": "Gilded silver and garnets, 500–550"
+  },
+  {
+    "image": "anglo-saxon-square-headed-bow-brooch.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Square-Headed Bow Brooch",
+    "scientific": "Gilded copper alloy, 500–600"
+  },
+  {
+    "image": "anglo-saxon-pectoral-with-christ-and-the-lamb.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Pectoral with Christ and the Lamb of God",
+    "scientific": "Walrus ivory, 1000–1050",
+    "sacred": true
+  },
+  {
+    "image": "anglo-saxon-glass-beaker.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Globular Beaker with Trails",
+    "scientific": "Glass, 5th–7th century"
+  },
+  {
+    "image": "anglo-saxon-sword-pommel.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Sword Pommel",
+    "scientific": "Silver and niello, late 9th century"
+  },
+  {
+    "image": "anglo-saxon-bird-brooch-with-garnets.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Bird Brooch with Niello",
+    "scientific": "Gilded silver and garnets, 500–550"
+  },
+  {
+    "image": "anglo-saxon-disk-brooch-with-glass.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Disk Brooch",
+    "scientific": "Gold, glass and silvered bronze, 7th century"
+  },
+  {
+    "image": "anglo-saxon-square-headed-brooch.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Square-Headed Brooch",
+    "scientific": "Gilded silver, early 6th century"
+  },
+  {
+    "image": "anglo-saxon-miniature-brooch-with-a-garnet.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Miniature Brooch with a Garnet",
+    "scientific": "Gilded silver, early 6th century"
+  },
+  {
+    "image": "anglo-saxon-miniature-square-headed-brooch.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Miniature Square-Headed Brooch",
+    "scientific": "Gilded silver, early 6th century"
+  },
+  {
+    "image": "anglo-saxon-sceat.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Silver Sceat",
+    "scientific": "Coin, 7th–8th century"
+  },
+  {
+    "image": "anglo-saxon-wessex-penny.webp",
+    "artist": "Anglo-Saxon England",
+    "name": "Penny of Wessex",
+    "scientific": "Silver, 861–866"
+  },
+  {
+    "image": "saxon-otto-i-presents-magdeburg-cathedral.webp",
+    "artist": "Saxony",
+    "name": "Otto I Presents Magdeburg Cathedral to Christ",
+    "scientific": "Ivory, c. 962–968",
+    "sacred": true
+  },
+  {
+    "image": "saxon-prophet-king.webp",
+    "artist": "Saxony",
+    "name": "A King from a Tree of Jesse",
+    "scientific": "Stained glass, c. 1260–1270",
+    "sacred": true
+  },
+  {
+    "image": "saxon-centaur-aquamanile.webp",
+    "artist": "Saxony",
+    "name": "Centaur Fighting a Dragon",
+    "scientific": "Aquamanile, Hildesheim (?), 1200–1225",
+    "effect": "sword",
+    "content": [
+      "violence",
+      "frightening"
+    ]
+  },
+  {
+    "image": "saxon-massacre-of-the-innocents.webp",
+    "artist": "Saxony",
+    "name": "The Massacre of the Innocents",
+    "scientific": "Enamel on gilded copper, c. 1150",
+    "sacred": true,
+    "effect": "sword",
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ]
+  },
+  {
+    "image": "saxon-saint-bartholomew.webp",
+    "artist": "Saxony",
+    "name": "Saint Bartholomew",
+    "scientific": "Enamel on gilded copper, mid-12th century",
+    "sacred": true
+  },
+  {
+    "image": "saxon-saint-thomas.webp",
+    "artist": "Saxony",
+    "name": "Saint Thomas",
+    "scientific": "Enamel on gilded copper, mid-12th century",
+    "sacred": true
+  },
+  {
+    "image": "saxon-knight-aquamanile.webp",
+    "artist": "Saxony",
+    "name": "Knight on Horseback",
+    "scientific": "Aquamanile, Hildesheim (?), c. 1250",
+    "effect": "gallop"
+  },
+  {
+    "image": "saxon-monk-scribe-on-a-wyvern.webp",
+    "artist": "Saxony",
+    "name": "Monk-Scribe Astride a Wyvern",
+    "scientific": "Brass, Magdeburg, mid-12th century",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "saxon-saint-john-at-his-desk.webp",
+    "artist": "Saxony",
+    "name": "Saint John the Evangelist at His Desk",
+    "scientific": "Painted and gilded wood, 1200–1225",
+    "sacred": true
+  },
+  {
+    "image": "saxon-prophet-daniel.webp",
+    "artist": "Saxony",
+    "name": "The Prophet Daniel (?)",
+    "scientific": "Painted and gilded wood, 1200–1225",
+    "sacred": true
+  },
+  {
+    "image": "saxon-prophet-isaiah.webp",
+    "artist": "Saxony",
+    "name": "The Prophet Isaiah",
+    "scientific": "Painted and gilded wood, 1200–1225",
+    "sacred": true
+  },
+  {
+    "image": "saxon-falconer-aquamanile.webp",
+    "artist": "Saxony",
+    "name": "Falconer on Horseback",
+    "scientific": "Aquamanile, 13th century",
+    "effect": "gallop"
+  },
+  {
+    "image": "saxon-rooster-aquamanile.webp",
+    "artist": "Saxony",
+    "name": "Rooster",
+    "scientific": "Aquamanile, 13th century"
+  },
+  {
+    "image": "saxon-pricket-candlestick.webp",
+    "artist": "Saxony",
+    "name": "Pricket Candlestick with Birds and Vines",
+    "scientific": "Enamel on gilded copper, Hildesheim (?), 1175–1200"
+  },
+  {
+    "image": "saxon-crucifix.webp",
+    "artist": "Saxony",
+    "name": "Crucifix",
+    "scientific": "Gilded copper alloy, 1125–1150",
+    "sacred": true
   }
 ]
