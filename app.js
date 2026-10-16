@@ -1327,6 +1327,7 @@ guideEl.addEventListener('click', () => {
 
 $('#backBtn').addEventListener('click', () => openArtist(homeOf(game.p)));
 $('#doneHome').addEventListener('click', openGallery);
+$('#doneSurprise').addEventListener('click', surprise);
 $('#artistBack').addEventListener('click', () => (artist.set || view === 'list' ? openGallery() : openPeriod(periodOf(artist))));
 $('#periodBack').addEventListener('click', openGallery);
 $('#againBtn').addEventListener('click', () => start(game.p, true));
