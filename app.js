@@ -835,7 +835,7 @@ async function visit(p) {
     return;
   }
   game = { p, aspect: img.naturalWidth / img.naturalHeight, held: [], done: true };
-  $('#backName').textContent = homeOf(p).name;
+  $('#doneArtistName').textContent = homeOf(p).name;
   showPlate(p, false);
 }
 
@@ -850,7 +850,7 @@ async function start(p, fresh = false) {
     return;
   }
   $('#pause').hidden = true;
-  $('#quitName').textContent =$('#backName').textContent = homeOf(p).name;
+  $('#quitName').textContent = $('#doneArtistName').textContent = homeOf(p).name;
   show('play');
 
   const aspect = img.naturalWidth / img.naturalHeight;
@@ -1266,6 +1266,7 @@ function showPlate(p, played = true) {
   $('#nextBtn').hidden = homeOf(p).puzzles.filter((q) => !locked(q)).length < 2;
   // The solved screen fades in over the puzzle, which is only put away after.
   const done = $('#done');
+  $('#donePause').hidden = true;
   done.classList.add('arriving');
   done.hidden = false;
   setTimeout(() => {
@@ -1325,7 +1326,17 @@ guideEl.addEventListener('click', () => {
   if (peekEl.classList.toggle('show')) peekTimer = setTimeout(() => peekEl.classList.remove('show'), 1800);
 });
 
-$('#backBtn').addEventListener('click', () => openArtist(homeOf(game.p)));
+// the solved screen's menu: the ways back to the artist and the gallery
+$('#donePauseBtn').addEventListener('click', () => ($('#donePause').hidden = false));
+$('#doneResume').addEventListener('click', () => ($('#donePause').hidden = true));
+$('#doneRestart').addEventListener('click', () => start(game.p, true));
+// Settings from the solved screen: the finished picture waits behind them
+$('#doneSettings').addEventListener('click', () => {
+  settingsFrom = 'done';
+  showSound();
+  show('settings');
+});
+$('#doneArtist').addEventListener('click', () => openArtist(homeOf(game.p)));
 $('#doneHome').addEventListener('click', openGallery);
 $('#doneSurprise').addEventListener('click', surprise);
 $('#artistBack').addEventListener('click', () => (artist.set || view === 'list' ? openGallery() : openPeriod(periodOf(artist))));
@@ -1354,6 +1365,8 @@ $('#settingsBack').addEventListener('click', async () => {
       $('#pause').hidden = false;
     }
   }
+  // a finished picture hidden in the meantime is put away
+  if (settingsFrom === 'done' && !visible(game.p)) return openGallery();
   // an artist's page comes back without the pictures hidden in the meantime
   if (settingsFrom === 'artist') {
     if (!(artistBefore.set ? artistBefore.puzzles.length : artists.includes(artistBefore))) return openGallery();
