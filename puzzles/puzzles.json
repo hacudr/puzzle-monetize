@@ -6418,5 +6418,341 @@
     "name": "Crucifix",
     "scientific": "Gilded copper alloy, 1125–1150",
     "sacred": true
+  },
+  {
+    "image": "hokusai-the-great-wave.webp",
+    "artist": "Katsushika Hokusai",
+    "name": "The Great Wave off Kanagawa",
+    "scientific": "Thirty-six Views of Mount Fuji, c. 1830–32"
+  },
+  {
+    "image": "hokusai-red-fuji.webp",
+    "artist": "Katsushika Hokusai",
+    "name": "South Wind, Clear Sky (Red Fuji)",
+    "scientific": "Thirty-six Views of Mount Fuji, c. 1830–32"
+  },
+  {
+    "image": "hokusai-ejiri-in-suruga-province.webp",
+    "artist": "Katsushika Hokusai",
+    "name": "Ejiri in Suruga Province",
+    "scientific": "Thirty-six Views of Mount Fuji, c. 1830–32"
+  },
+  {
+    "image": "hokusai-kajikazawa-in-kai-province.webp",
+    "artist": "Katsushika Hokusai",
+    "name": "Kajikazawa in Kai Province",
+    "scientific": "Thirty-six Views of Mount Fuji, c. 1830–32"
+  },
+  {
+    "image": "hokusai-the-amida-falls.webp",
+    "artist": "Katsushika Hokusai",
+    "name": "The Amida Falls on the Kisokaidō Road",
+    "scientific": "A Tour of Waterfalls, c. 1832"
+  },
+  {
+    "image": "hokusai-kintai-bridge.webp",
+    "artist": "Katsushika Hokusai",
+    "name": "Kintai Bridge in Suō Province",
+    "scientific": "Remarkable Views of Bridges, 1827–30"
+  },
+  {
+    "image": "hiroshige-sudden-shower-over-shin-ohashi-bridge.webp",
+    "artist": "Utagawa Hiroshige",
+    "name": "Sudden Shower over Shin-Ōhashi Bridge",
+    "scientific": "One Hundred Famous Views of Edo, 1857"
+  },
+  {
+    "image": "hiroshige-evening-snow-at-kanbara.webp",
+    "artist": "Utagawa Hiroshige",
+    "name": "Evening Snow at Kanbara",
+    "scientific": "Fifty-three Stations of the Tōkaidō, c. 1833–34"
+  },
+  {
+    "image": "hiroshige-kinryuzan-temple-at-asakusa.webp",
+    "artist": "Utagawa Hiroshige",
+    "name": "Kinryūzan Temple at Asakusa",
+    "scientific": "One Hundred Famous Views of Edo, 1856"
+  },
+  {
+    "image": "hiroshige-plum-garden-at-kamata.webp",
+    "artist": "Utagawa Hiroshige",
+    "name": "Plum Garden at Kamata",
+    "scientific": "One Hundred Famous Views of Edo, 1857"
+  },
+  {
+    "image": "hiroshige-sudden-shower-at-shono.webp",
+    "artist": "Utagawa Hiroshige",
+    "name": "Sudden Shower at Shōno",
+    "scientific": "Fifty-three Stations of the Tōkaidō, 1834–35"
+  },
+  {
+    "image": "hiroshige-maples-at-mama.webp",
+    "artist": "Utagawa Hiroshige",
+    "name": "Maples at Mama",
+    "scientific": "One Hundred Famous Views of Edo, c. 1857"
+  },
+  {
+    "image": "utamaro-hour-of-the-rat.webp",
+    "artist": "Kitagawa Utamaro",
+    "name": "Hour of the Rat: Mistress",
+    "scientific": "Women’s Daily Customs, 1790",
+    "content": [
+      "nudity"
+    ]
+  },
+  {
+    "image": "utamaro-a-woman-and-a-cat.webp",
+    "artist": "Kitagawa Utamaro",
+    "name": "A Woman and a Cat",
+    "scientific": "c. 1793–94"
+  },
+  {
+    "image": "utamaro-geisha-walking-through-the-snow-at-night.webp",
+    "artist": "Kitagawa Utamaro",
+    "name": "Geisha Walking through the Snow at Night",
+    "scientific": "c. 1797"
+  },
+  {
+    "image": "utamaro-women-weaving-silk-cloth.webp",
+    "artist": "Kitagawa Utamaro",
+    "name": "Women Weaving Silk Cloth",
+    "scientific": "c. 1800"
+  },
+  {
+    "image": "utamaro-butterfly-and-dragonfly.webp",
+    "artist": "Kitagawa Utamaro",
+    "name": "Butterfly and Dragonfly",
+    "scientific": "Picture Book of Crawling Creatures, 1788"
+  },
+  {
+    "image": "harunobu-night-rain-at-the-double-shelf-stand.webp",
+    "artist": "Suzuki Harunobu",
+    "name": "Night Rain at the Double-Shelf Stand",
+    "scientific": "Eight Parlor Views, c. 1766"
+  },
+  {
+    "image": "harunobu-lovers-walking-in-the-snow.webp",
+    "artist": "Suzuki Harunobu",
+    "name": "Lovers Walking in the Snow",
+    "scientific": "1764–72"
+  },
+  {
+    "image": "harunobu-two-women-in-a-storm.webp",
+    "artist": "Suzuki Harunobu",
+    "name": "Two Women in a Storm",
+    "scientific": "1764–72"
+  },
+  {
+    "image": "harunobu-young-woman-riding-a-phoenix.webp",
+    "artist": "Suzuki Harunobu",
+    "name": "Young Woman Riding a Phoenix",
+    "scientific": "1766"
+  },
+  {
+    "image": "harunobu-drawing-the-first-water-of-the-new-year.webp",
+    "artist": "Suzuki Harunobu",
+    "name": "Drawing the First Water of the New Year",
+    "scientific": "c. 1769–70"
+  },
+  {
+    "image": "kiyonaga-cherry-blossom-viewing-at-gotenyama.webp",
+    "artist": "Torii Kiyonaga",
+    "name": "Cherry Blossom Viewing at Gotenyama",
+    "scientific": "c. 1784"
+  },
+  {
+    "image": "kiyonaga-pleasure-boat-on-the-sumida-river.webp",
+    "artist": "Torii Kiyonaga",
+    "name": "Pleasure Boat on the Sumida River",
+    "scientific": "c. 1788–90"
+  },
+  {
+    "image": "kiyonaga-a-young-woman-with-a-dog.webp",
+    "artist": "Torii Kiyonaga",
+    "name": "A Young Woman with a Dog",
+    "scientific": "Pictures of Ten Styles, c. 1790–91"
+  },
+  {
+    "image": "kiyonaga-beneath-a-wisteria-arbor.webp",
+    "artist": "Torii Kiyonaga",
+    "name": "Three Women and a Boy beneath a Wisteria Arbor",
+    "scientific": "c. 1790"
+  },
+  {
+    "image": "kiyonaga-the-brine-maidens-of-suma.webp",
+    "artist": "Torii Kiyonaga",
+    "name": "The Brine Maidens of Suma",
+    "scientific": "1783"
+  },
+  {
+    "image": "sharaku-otani-oniji-iii-as-yakko-edobei.webp",
+    "artist": "Tōshūsai Sharaku",
+    "name": "Ōtani Oniji III as Yakko Edobei",
+    "scientific": "Kabuki actor, 1794"
+  },
+  {
+    "image": "sharaku-morita-kanya-viii-as-the-palanquin-bearer.webp",
+    "artist": "Tōshūsai Sharaku",
+    "name": "Morita Kan’ya VIII as the Palanquin-Bearer",
+    "scientific": "Kabuki actor, 1794"
+  },
+  {
+    "image": "sharaku-ichikawa-ebizo.webp",
+    "artist": "Tōshūsai Sharaku",
+    "name": "Ichikawa Ebizō as Takemura Sadanoshin",
+    "scientific": "Kabuki actor, 1794"
+  },
+  {
+    "image": "sharaku-matsumoto-yonesaburo.webp",
+    "artist": "Tōshūsai Sharaku",
+    "name": "Matsumoto Yonesaburō as Shōshō",
+    "scientific": "Kabuki actor, c. 1794"
+  },
+  {
+    "image": "sharaku-segawa-tomisaburo-ii-as-yadorigi.webp",
+    "artist": "Tōshūsai Sharaku",
+    "name": "Segawa Tomisaburō II as Yadorigi",
+    "scientific": "Kabuki actor, 1794"
+  },
+  {
+    "image": "kuniyoshi-ghosts-of-the-taira-at-daimotsu-bay.webp",
+    "artist": "Utagawa Kuniyoshi",
+    "name": "Ghosts of the Taira at Daimotsu Bay",
+    "scientific": "Triptych, 1843–47",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "kuniyoshi-ochanomizu-in-the-rain.webp",
+    "artist": "Utagawa Kuniyoshi",
+    "name": "Ochanomizu in the Rain",
+    "scientific": "Mid-19th century"
+  },
+  {
+    "image": "kuniyoshi-mount-asama-from-the-usui-pass.webp",
+    "artist": "Utagawa Kuniyoshi",
+    "name": "Mount Asama from the Usui Pass",
+    "scientific": "c. 1850"
+  },
+  {
+    "image": "kuniyoshi-nichiren-in-snow-at-tsukahara.webp",
+    "artist": "Utagawa Kuniyoshi",
+    "name": "Nichiren in the Snow at Tsukahara",
+    "scientific": "Illustrated Biography of Nichiren, 1835–36"
+  },
+  {
+    "image": "kuniyoshi-seaweed-gatherers-at-omori.webp",
+    "artist": "Utagawa Kuniyoshi",
+    "name": "Seaweed Gatherers at Ōmori",
+    "scientific": "c. 1840"
+  },
+  {
+    "image": "kunisada-futami-ga-ura-rocks-at-ise.webp",
+    "artist": "Utagawa Kunisada",
+    "name": "The Wedded Rocks at Futami-ga-ura",
+    "scientific": "c. 1835"
+  },
+  {
+    "image": "kunisada-rain-of-the-fifth-month.webp",
+    "artist": "Utagawa Kunisada",
+    "name": "Rain of the Fifth Month",
+    "scientific": "19th century",
+    "effect": "gallop"
+  },
+  {
+    "image": "kunisada-mitsuuji-with-mountain-roses.webp",
+    "artist": "Utagawa Kunisada",
+    "name": "Mitsuuji with Mountain Roses",
+    "scientific": "Fan print, late 1830s"
+  },
+  {
+    "image": "kunisada-woman-with-a-folding-fan-and-hand-mirror.webp",
+    "artist": "Utagawa Kunisada",
+    "name": "Woman with a Folding Fan and Hand Mirror",
+    "scientific": "Fan print, 1838"
+  },
+  {
+    "image": "kunisada-danjuro-vii-as-fudo-myoo.webp",
+    "artist": "Utagawa Kunisada",
+    "name": "Danjūrō VII as Fudō Myōō",
+    "scientific": "Surimono, c. 1824"
+  },
+  {
+    "image": "eisen-koi.webp",
+    "artist": "Keisai Eisen",
+    "name": "Carp",
+    "scientific": "c. 1842"
+  },
+  {
+    "image": "eisen-winter-landscape.webp",
+    "artist": "Keisai Eisen",
+    "name": "Winter Landscape",
+    "scientific": "19th century"
+  },
+  {
+    "image": "eisen-lake-suwa-from-shiojiri-pass.webp",
+    "artist": "Keisai Eisen",
+    "name": "Lake Suwa from Shiojiri Pass",
+    "scientific": "Sixty-nine Stations of the Kisokaidō, c. 1835",
+    "effect": "gallop"
+  },
+  {
+    "image": "eisen-clearing-weather-at-nihonbashi.webp",
+    "artist": "Keisai Eisen",
+    "name": "Clearing Weather at Nihonbashi",
+    "scientific": "Eight Views of Edo, 1843–47"
+  },
+  {
+    "image": "eisen-kegon-waterfall.webp",
+    "artist": "Keisai Eisen",
+    "name": "Kegon Waterfall",
+    "scientific": "19th century"
+  },
+  {
+    "image": "yoshitoshi-moon-in-the-flame.webp",
+    "artist": "Tsukioka Yoshitoshi",
+    "name": "Moon in the Flame",
+    "scientific": "One Hundred Aspects of the Moon, 1886",
+    "content": [
+      "frightening"
+    ]
+  },
+  {
+    "image": "yoshitoshi-teasing-the-cat.webp",
+    "artist": "Tsukioka Yoshitoshi",
+    "name": "Teasing the Cat",
+    "scientific": "Thirty-two Aspects of Women, 1888"
+  },
+  {
+    "image": "yoshitoshi-plum-blossoms-in-the-forest-of-ikuta.webp",
+    "artist": "Tsukioka Yoshitoshi",
+    "name": "Plum Blossoms in the Forest of Ikuta",
+    "scientific": "Triptych, 1867",
+    "content": [
+      "violence"
+    ],
+    "effect": [
+      "sword",
+      "gallop"
+    ]
+  },
+  {
+    "image": "yoshitoshi-steam-locomotive-at-takanawa.webp",
+    "artist": "Tsukioka Yoshitoshi",
+    "name": "Steam Locomotive at Takanawa",
+    "scientific": "Famous Places in Tokyo, triptych, 1872"
+  },
+  {
+    "image": "yoshitoshi-fudo-myoo-threatening-a-novice.webp",
+    "artist": "Tsukioka Yoshitoshi",
+    "name": "Fudō Myōō Threatening a Novice",
+    "scientific": "Triptych, 1885",
+    "content": [
+      "nudity",
+      "violence",
+      "frightening"
+    ],
+    "effect": "sword"
   }
 ]

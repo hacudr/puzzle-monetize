@@ -337,5 +337,65 @@
     "note": "Ottonian and Romanesque, c. 960–1270",
     "period": "Anglo-Saxon and Saxon Art",
     "cover": "saxon-prophet-king.webp"
+  },
+  {
+    "name": "Katsushika Hokusai",
+    "note": "Japanese, 1760–1849",
+    "period": "Japanese Prints",
+    "cover": "hokusai-the-great-wave.webp"
+  },
+  {
+    "name": "Utagawa Hiroshige",
+    "note": "Japanese, 1797–1858",
+    "period": "Japanese Prints",
+    "cover": "hiroshige-sudden-shower-over-shin-ohashi-bridge.webp"
+  },
+  {
+    "name": "Kitagawa Utamaro",
+    "note": "Japanese, c. 1754–1806",
+    "period": "Japanese Prints",
+    "cover": "utamaro-geisha-walking-through-the-snow-at-night.webp"
+  },
+  {
+    "name": "Suzuki Harunobu",
+    "note": "Japanese, 1725–1770",
+    "period": "Japanese Prints",
+    "cover": "harunobu-lovers-walking-in-the-snow.webp"
+  },
+  {
+    "name": "Torii Kiyonaga",
+    "note": "Japanese, 1752–1815",
+    "period": "Japanese Prints",
+    "cover": "kiyonaga-a-young-woman-with-a-dog.webp"
+  },
+  {
+    "name": "Tōshūsai Sharaku",
+    "note": "Japanese, active 1794–1795",
+    "period": "Japanese Prints",
+    "cover": "sharaku-otani-oniji-iii-as-yakko-edobei.webp"
+  },
+  {
+    "name": "Utagawa Kuniyoshi",
+    "note": "Japanese, 1797–1861",
+    "period": "Japanese Prints",
+    "cover": "kuniyoshi-seaweed-gatherers-at-omori.webp"
+  },
+  {
+    "name": "Utagawa Kunisada",
+    "note": "Japanese, 1786–1865",
+    "period": "Japanese Prints",
+    "cover": "kunisada-woman-with-a-folding-fan-and-hand-mirror.webp"
+  },
+  {
+    "name": "Keisai Eisen",
+    "note": "Japanese, 1790–1848",
+    "period": "Japanese Prints",
+    "cover": "eisen-koi.webp"
+  },
+  {
+    "name": "Tsukioka Yoshitoshi",
+    "note": "Japanese, 1839–1892",
+    "period": "Japanese Prints",
+    "cover": "yoshitoshi-teasing-the-cat.webp"
   }
 ]
