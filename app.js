@@ -975,6 +975,8 @@ function layout() {
   // a finished picture on show has no pieces to lay out
   if (!game || !game.cols) return;
   const stage = $('#stage');
+  // a hidden puzzle has no size to fit; it is laid out again when it shows
+  if (!stage.clientWidth || !stage.clientHeight) return;
   const play = $('#play');
   const k = (game.aspect * game.rows) / game.cols; // cell width / cell height
   game.strip = STRIP_MAX;
@@ -1426,7 +1428,12 @@ document.querySelectorAll('#sounds button').forEach((b) =>
 document.querySelectorAll('#themes button').forEach((b) => b.addEventListener('click', () => setTheme(b.dataset.theme)));
 document.querySelectorAll('#frames button').forEach((b) => b.addEventListener('click', () => setFrame(b.dataset.frame)));
 
+// The pieces are fitted to the stage whenever its size changes. On the iPad a
+// turn of the screen fires 'resize' before the page has been laid out afresh,
+// so the stage's own size is watched instead: it reports only once the new
+// size has taken, and so the board can no longer spill over the bar and tray.
 window.addEventListener('resize', layout);
+if (window.ResizeObserver) new ResizeObserver(layout).observe($('#stage'));
 // Every touch, at its start and at its end, wakes the audio or renews it if it
 // has died: iOS lets sound begin only at the end of a touch, and may have put it
 // to sleep while the app was away.
